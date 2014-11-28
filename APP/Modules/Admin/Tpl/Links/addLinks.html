@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='' ?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+    <title>Insert title here</title>
+</head>
+
+<body>
+<form action="{:U(GROUP_NAME.'/Links/runLinks')}" method="post">
+
+            <table class="table">
+                <tr>
+                    <th colspan="2">添加友情链接</th>
+                </tr>
+                <tr>
+                    <td align='right'>网站名称：</td>
+                    <td>
+                        <input type="text" name="name" value="<if condition='ACTION_NAME eq "undata"'>{$name}</if>">
+                      
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">网站网址：</td>
+                    <td><input type="text" name="link" value="<if condition='ACTION_NAME eq "undata"'>{$link}</if>"></td>
+                </tr>
+            <tr>
+<!--  如果是新加网站，ID值不存在-->
+            <td colspan="2" align="center">
+             <if condition='ACTION_NAME eq "undata"'>
+            <input type="hidden" name="id" value="{$id}">
+            </if>
+<input type="submit" value="保存添加"></td>
+            </td>
+                       
+            
+            </tr>
+            </table>
+    </form>
+</body>
+
+</html>

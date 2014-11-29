@@ -16,7 +16,7 @@ class IndexAction extends Action{
 				$cids=Category::getChildsId($cate,$v['id']);//一级分类获得二级分类的ID
 				$cids[]=$v['id'];//加上自己一级分类的ID,这个数组就会有一二级分类的ID
 				$where=array('cid'=>array('IN',$cids));//where出有该一二级分类ID的文章
-				$list[$k]['blog']=$db->field($field)->where($where)->select();
+				$list[$k]['blog']=$db->order('time desc')->field($field)->where($where)->select();
 			}
 			S('index_list',$list,10);//S方法，缓冲模式。多少秒。
 		}

@@ -6,6 +6,7 @@ return array(
 	),
 		//U方法默认没有后缀名
 		'URL_HTML_SUFFIX'=>'', 
+	
 );
 
 ?>

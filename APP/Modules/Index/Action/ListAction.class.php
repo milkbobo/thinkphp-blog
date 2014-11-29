@@ -19,12 +19,12 @@ class ListAction extends Action{
 
 		//page方法
 		// 进行分页数据查询 注意page方法的参数的前面部分是当前的页数使用 $_GET[p]获取
-		$this->blog = D('BlogView')->where('del=0')->order('time')->page($_GET['p'].',25')->select();
+		$p=I('p',1);
+		$this->blog = D('BlogView')->where($where)->order('time desc')->page($p.',25')->select();
 		$count      = M('blog')->where('status=1')->count();// 查询满足要求的总记录数
 		$Page       = new Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数
 		$this->page= $Page->show();// 分页显示输出
 		
-		$this->blog=D('BlogView')->getAll($where,$limit);
 		//$this->blog=D('BlogView')->->where($where)->limit($limit)->select();
 
 		$this->display();

@@ -74,7 +74,7 @@ class BlogAction extends CommonAction{
 		$data=array(
 		'title'=>I('title'),
 		//'content'=>$_POST['content'],
-		'content'=>I('content'),
+		'content'=>I('content','',''),//修复为不用转义html
 		'summary'=>I('summary'),
 		'time'=>time(),
 		//'click'=>(int)$_POST['click'],

@@ -1,58 +1,30 @@
 <include file='Common:header' />
 <link rel="stylesheet" href="__PUBLIC__/Css/show.css" />
+<link rel="stylesheet" href="__ROOT__/Data/Ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" />
+<script type="text/javascript" src='__ROOT__/Data/Ueditor/third-party/SyntaxHighlighter/shCore.js'></script>
+<script  type="text/javascript">
+SyntaxHighlighter.all();
+</script>
+
 <include file='Common:nav' />
 <div class='main'>
     <div class='main-left'>
         <div class='location'>
-            <a href="">首页</a>>
-            <a href="">PHP</a>>
-            <a href="">对象</a>
+            <a href="">首页</a>
+            <foreach name='parent' item='v'>
+                ><a href="{:U('/c_'.$v['id'])}">{$v.name}</a>
+            </foreach>
+            
         </div>
         <div class="title">
-            <p>对象的产生与生命周期</p>
+            <p>{$blog.title}</p>
             <div>
-                <span class='fl'>发布于：2013年12月12日</span>
-                <span class='fr'>已被阅读1024次</span>
+                <span class='fl'>发布于：{$blog.time|date='Y年M月D日',###}</span>
+                <span class='fr'>已被阅读<script src='{:U(GROUP_NAME."/Show/clickNum",array("id"=>$blog["id"]))}'></script>次</span>
             </div>
         </div>
-        <div class='content'>
-            这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>这里是正文
-            <br/>
+        <div class='content' style="word-break:break-all">
+            {$blog.content}
         </div>
     </div>
     <!--主体右侧-->
